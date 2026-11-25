@@ -66,10 +66,7 @@ export function LatestCourses({ courses }: { courses: FeaturedCourse[] }) {
     <section className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-medium text-primary">Fresh this season</p>
-          <h2 className="mt-1 text-3xl font-bold tracking-tight">
-            Latest courses
-          </h2>
+          <h2 className="text-3xl font-bold tracking-tight">Latest courses</h2>
           <p className="mt-2 max-w-xl text-muted-foreground">
             The newest courses from our instructors, ready to start today.
           </p>
