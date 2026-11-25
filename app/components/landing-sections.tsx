@@ -8,24 +8,14 @@ import {
   CardHeader,
 } from "~/components/ui/card";
 import { CourseImage } from "~/components/course-image";
-
-export type LandingCourse = {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  coverImageUrl: string | null;
-  instructorName: string;
-  categoryName: string;
-  lessonCount: number;
-};
+import type { FeaturedCourse } from "~/modules/landing-page/index.server";
 
 function lessonLabel(count: number) {
   return `${count} ${count === 1 ? "lesson" : "lessons"}`;
 }
 
 /** The hero's right-hand column: the newest course up front, the next two below. */
-export function HeroShowcase({ courses }: { courses: LandingCourse[] }) {
+export function HeroShowcase({ courses }: { courses: FeaturedCourse[] }) {
   const [lead, ...rest] = courses;
   if (!lead) return null;
 
@@ -69,7 +59,7 @@ export function HeroShowcase({ courses }: { courses: LandingCourse[] }) {
   );
 }
 
-export function LatestCourses({ courses }: { courses: LandingCourse[] }) {
+export function LatestCourses({ courses }: { courses: FeaturedCourse[] }) {
   if (courses.length === 0) return null;
 
   return (
@@ -100,7 +90,7 @@ export function LatestCourses({ courses }: { courses: LandingCourse[] }) {
   );
 }
 
-function ShowcaseRow({ course }: { course: LandingCourse }) {
+function ShowcaseRow({ course }: { course: FeaturedCourse }) {
   return (
     <Link
       to={`/courses/${course.slug}`}
@@ -119,7 +109,7 @@ function ShowcaseRow({ course }: { course: LandingCourse }) {
   );
 }
 
-function LatestCourseCard({ course }: { course: LandingCourse }) {
+function LatestCourseCard({ course }: { course: FeaturedCourse }) {
   return (
     <Link to={`/courses/${course.slug}`} className="group">
       <Card className="h-full overflow-hidden pt-0 transition-shadow group-hover:shadow-md">
