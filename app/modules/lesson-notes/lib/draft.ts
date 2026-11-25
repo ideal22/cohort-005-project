@@ -1,0 +1,29 @@
+import { MAX_NOTE_LENGTH } from "~/lib/notes";
+
+export type NoteDraft = {
+  length: number;
+  maxLength: number;
+  tooLong: boolean;
+  empty: boolean;
+  unsaved: boolean;
+  canSave: boolean;
+};
+
+export function describeDraft(
+  draft: string,
+  savedBody: string | null
+): NoteDraft {
+  const tooLong = draft.length > MAX_NOTE_LENGTH;
+  // The save action rejects a blank Note, so the button must not offer it.
+  const empty = draft.trim().length === 0;
+  const unsaved = draft !== (savedBody ?? "");
+
+  return {
+    length: draft.length,
+    maxLength: MAX_NOTE_LENGTH,
+    tooLong,
+    empty,
+    unsaved,
+    canSave: unsaved && !empty && !tooLong,
+  };
+}
