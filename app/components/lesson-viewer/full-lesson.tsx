@@ -7,7 +7,6 @@ import {
   Clock,
   Github,
 } from "lucide-react";
-import type { Route } from "../../routes/+types/courses.$slug.lessons.$lessonId";
 import { CommentThread } from "~/components/comment-thread";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
@@ -17,10 +16,9 @@ import { formatDuration } from "~/lib/utils";
 import { BookmarkToggle } from "./bookmark-toggle";
 import { CurriculumSidebar } from "./curriculum-sidebar";
 import { LessonNote } from "./lesson-note";
-import { LessonBreadcrumb } from "./locked-lesson";
+import { LessonBreadcrumb } from "./lesson-breadcrumb";
+import type { LessonLoaderData } from "./lesson-loader-data";
 import { QuizSection } from "./quiz-section";
-
-type LessonLoaderData = Route.ComponentProps["loaderData"];
 
 const AUTOPLAY_KEY = "cadence-autoplay";
 
