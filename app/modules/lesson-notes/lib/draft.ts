@@ -14,9 +14,11 @@ export function describeDraft(
   savedBody: string | null
 ): NoteDraft {
   const tooLong = draft.length > MAX_NOTE_LENGTH;
-  // The save action rejects a blank Note, so the button must not offer it.
-  const empty = draft.trim().length === 0;
-  const unsaved = draft !== (savedBody ?? "");
+  // The save action trims the body and rejects a blank one, so compare and
+  // judge the box as the action will store it.
+  const trimmed = draft.trim();
+  const empty = trimmed.length === 0;
+  const unsaved = trimmed !== (savedBody ?? "");
 
   return {
     length: draft.length,

@@ -36,7 +36,13 @@ describe("noteDraft", () => {
   it("does not offer to save whitespace", () => {
     const draft = noteDraft("   \n ", null);
     expect(draft.empty).toBe(true);
-    expect(draft.unsaved).toBe(true);
+    expect(draft.canSave).toBe(false);
+  });
+
+  it("treats the box as saved when only surrounding whitespace differs", () => {
+    // The save action trims the body, so the saved Note lacks the whitespace.
+    const draft = noteDraft("Saved text \n", "Saved text");
+    expect(draft.unsaved).toBe(false);
     expect(draft.canSave).toBe(false);
   });
 
