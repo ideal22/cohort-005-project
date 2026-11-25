@@ -70,7 +70,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
     featuredCourses,
     publishedCourseCount,
     categoryCount,
-    lessonCount,
+    publishedLessonCount,
     users,
     currentUser,
     devCountry,
@@ -94,7 +94,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 
   const stats = [
     { icon: BookOpen, value: publishedCourseCount, label: "Courses" },
-    { icon: ListVideo, value: lessonCount, label: "Lessons" },
+    { icon: ListVideo, value: publishedLessonCount, label: "Lessons" },
     { icon: Layers, value: categoryCount, label: "Categories" },
     { icon: Clock, value: "Self-paced", label: "Learn on your schedule" },
   ];
@@ -154,7 +154,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">
               <span className="size-1.5 rounded-full bg-primary" />
-              {publishedCourseCount} courses · {lessonCount} lessons
+              {publishedCourseCount} courses · {publishedLessonCount} lessons
             </p>
             <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl">
               Learn to code,

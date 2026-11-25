@@ -157,7 +157,7 @@ describe("landingPage.get", () => {
     expect(landing()).toMatchObject({
       publishedCourseCount: 6,
       categoryCount: 2,
-      lessonCount: 4,
+      publishedLessonCount: 4,
     });
   });
 
@@ -168,7 +168,7 @@ describe("landingPage.get", () => {
       featuredCourses: [],
       publishedCourseCount: 0,
       categoryCount: 0,
-      lessonCount: 0,
+      publishedLessonCount: 0,
     });
   });
 });

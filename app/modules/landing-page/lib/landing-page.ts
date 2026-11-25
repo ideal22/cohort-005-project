@@ -31,8 +31,7 @@ export type LandingPage = {
   publishedCourseCount: number;
   /** Categories that hold at least one published course. */
   categoryCount: number;
-  /** Lessons across every published course. */
-  lessonCount: number;
+  publishedLessonCount: number;
 };
 
 export function getLandingPage(db: Db): LandingPage {
@@ -83,7 +82,7 @@ export function getLandingPage(db: Db): LandingPage {
     })),
     publishedCourseCount: totals?.courseCount ?? 0,
     categoryCount: totals?.categoryCount ?? 0,
-    lessonCount: publishedLessons?.lessonCount ?? 0,
+    publishedLessonCount: publishedLessons?.lessonCount ?? 0,
   };
 }
 
